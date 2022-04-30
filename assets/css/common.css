@@ -1,0 +1,17 @@
+:root {
+    --primary-color: #50b7f5;
+    --secondary-color: #e6ecf0;
+    --primary-font: "Roboto", Arial, sans-serif;
+    --radius:8px;
+  }
+
+/* General Style */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    font-family: var(--primary-font);
+  }
