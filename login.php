@@ -41,7 +41,7 @@
                     <img src="assets/logo.png" alt="">
                 </div>
 
-                <h2 class="title">Sign in to Twitter</h2>
+                <h2 class="title">Sign in to Pegion</h2>
                 
                 <div>
                     <a href="#" class="sign_btn">
