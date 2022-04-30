@@ -1,3 +1,9 @@
+<?php
+    if(isset($_SESSION['user-id']) == false)
+        header('Location: login.php');
+
+    require_once('connection.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,17 +25,17 @@
 <body>
     <div class="container">
         <div class="grid">
-
             <nav id="sidebar">
                 <div class="upper">
                     <div class="logo">
-                        <img src="assets/logo_cropped.png" alt="">
+                        <img src="assets/logo.png" alt="">
                     </div>
                     <ul class="menu">
                         <li>
                             <a href="">
                                 <span class="material-symbols-outlined icon">home</span>
                                 <span class="option">Home</span>
+                                <nn
                             </a>
                         </li>
                         <li>
@@ -114,74 +120,45 @@
                 </div>
 
                 <div class="coo_wrapper">
-                    <div class="coo">
-                        <div class="user_icon">
-                            <img src="assets/icon/user.png" alt="">
-                        </div>
-                        <div class="post_details">
-                            <div class="user_info">
-                                <span class="full_name">Demo User</span>
-                                <span class="user_name">@demouser1</span>
-                            </div>
-                            <div class="discription">
-                                This is sample description. This is sample description. This is sample description.
-                            </div>
-                            <div class="post_img">
-                                <img src="assets/post_1.jpg" alt="">
-                            </div>
-                            <div class="post_actions"></div>
-                        </div>
-                    </div>
+                    <?php
+                        $query ="SELECT * FROM coos";
+                        $result = mysqli_query($connection, $query);
 
-                    <div class="coo">
-                        <div class="user_icon">
-                            <img src="assets/icon/user.png" alt="">
+                        if(mysqli_num_rows($result) > 0){
+                            while($row = mysqli_fetch_assoc($result)){
+                    ?>
+                        <div class="coo">
+                            <div class="user_icon">
+                                <img src="assets/icon/user.png" alt="">
+                            </div>
+                            <div class="post_details">
+                                <div class="user_info">
+                                    <?php
+                                        $userId = $row['user_id'];
+                                        $q = "SELECT * FROM user WHERE u_id = $userId";
+                                        $r = mysqli_query($connection, $q);
+                                        $userInfo = mysqli_fetch_assoc($r);
+                                    ?>
+                                    <span class="full_name"><?php echo $userInfo['full_name']; ?></span>
+                                    <span class="user_name"><?php echo $userInfo['user_name']; ?></span>
+                                </div>
+                                <div class="discription"><?php echo $row['discription']; ?></div>
+                                <div class="post_img">
+                                    <img src="<?php echo $row['img_url']; ?>" alt="">
+                                </div>
+                                <div class="post_actions"></div>
+                            </div>
                         </div>
-                        <div class="post_details">
-                            <div class="user_info">
-                                <span class="full_name">Demo User</span>
-                                <span class="user_name">@demouser1</span>
-                            </div>
-                            <div class="discription">
-                                This is sample description. This is sample description. This is sample description.
-                            </div>
-                            <div class="post_img">
-                                <img src="assets/post_2.jpg" alt="">
-                            </div>
-                            <div class="post_actions"></div>
-                        </div>
-                    </div>
-
-                    <div class="coo">
-                        <div class="user_icon">
-                            <img src="assets/icon/user.png" alt="">
-                        </div>
-                        <div class="post_details">
-                            <div class="user_info">
-                                <span class="full_name">Demo User</span>
-                                <span class="user_name">@demouser1</span>
-                            </div>
-                            <div class="discription">
-                                This is sample description. This is sample description. This is sample description.
-                            </div>
-                            <div class="post_img">
-                                <img src="assets/post_3.jpg" alt="">
-                            </div>
-                            <div class="post_actions"></div>
-                        </div>
-                    </div>
+                    <?php
+                            }
+                        }else{
+                            echo "No Post Found";
+                        }
+                    ?>
                 </div>
             </main>
 
-            <aside>
-                <h2>Who to follow</h2>
-
-                <div>
-                    <div class="profile_icon"></div>
-                    <div class="user_info"></div>
-                    <div class="follow_btn"></div>
-                </div>
-            </aside>
+            <aside></aside>
         </div>
     </div>
 </body>

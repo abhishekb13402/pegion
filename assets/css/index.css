@@ -1,0 +1,65 @@
+.wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 90vh;
+}
+
+.left_side img {
+    height: 100%;
+    width: 100%;
+}
+
+.right_side {
+    padding: 35px;
+}
+
+.right_side .logo {
+    height: 60px;
+    width: 60px;
+}
+
+.right_side .quote {
+    margin-top: 50px;
+    font-size: 42px;
+    font-weight: bolder;
+}
+
+.right_side .sub-quote {
+    margin-top: 24px;
+}
+
+footer {
+    padding: 20px 50px;
+}
+
+.links li {
+    display: inline-block;
+    list-style: none;
+    margin: 0 6px;
+}
+
+.links li a,
+.copy_right {
+    color: #333;
+    font-size: 12px;
+}
+
+.copy_right {
+    margin-top: 8px;
+    text-align: center;
+}
+
+
+form{
+    max-width: 320px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 12px;
+    margin-top: 20px;
+}
+
+.policy{
+    font-size: 12px;
+    color: gray;
+}
