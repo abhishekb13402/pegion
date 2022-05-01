@@ -5,7 +5,7 @@
         $email = mysqli_real_escape_string($connection, $_POST['email']);
         $pswd = md5(mysqli_real_escape_string($connection, $_POST['pswd']));
         
-        echo $email . "<br>". $pswd;
+        // echo $email . "<br>". $pswd;
 
         $query = "SELECT u_id, user_name, full_name FROM user WHERE email = '$email' AND password = '$pswd'";
         
