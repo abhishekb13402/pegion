@@ -5,16 +5,19 @@
         $email = mysqli_real_escape_string($connection, $_POST['email']);
         $pswd = md5(mysqli_real_escape_string($connection, $_POST['pswd']));
         
-        // echo $email . "<br>". $pswd;
-
         $query = "SELECT u_id, user_name, full_name FROM user WHERE email = '$email' AND password = '$pswd'";
         
         $result = mysqli_query($connection, $query) or die("Fetch Error");
 
         if(mysqli_num_rows($result) == 1){
+            $row = mysqli_fetch_assoc($result);
+            session_start();
+            $_SESSION['user-id'] = $row['u_id'];
+            $_SESSION['user-name'] = $row['user_name'];
+            $_SESSION['user-full-name'] = $row['full_name'];
             header('Location:home.php');
         }else{
-            echo "<script>alert('Invalid Email or Password')</script>";
+            echo "<script>alert('Invalid Email or Password');</script>";
         }
     }
 ?>
