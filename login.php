@@ -4,9 +4,7 @@
     if(isset($_POST['log-in'])){
         $email = mysqli_real_escape_string($connection, $_POST['email']);
         $pswd = md5(mysqli_real_escape_string($connection, $_POST['pswd']));
-
-        echo $email ;
-        echo $pswd;
+        
         $query = "SELECT u_id, user_name, full_name FROM user WHERE email = '$email' AND password = '$pswd'";
         
         $result = mysqli_query($connection, $query) or die("Fetch Error");
@@ -70,6 +68,8 @@
             </form>
         </div>
     </div>
+
+    <script src="assets/js/script.js"></script>
 </body>
 
 </html>

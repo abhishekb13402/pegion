@@ -12,13 +12,13 @@
 
 <body>
 
-    <div class="wrapper">
+    <div class="index">
         <div class="left_side">
             <img src="assets/logo_poster.jpg">
         </div>
         <div class="right_side">
             <img class="logo" src="assets/logo.png">
-            <h1 class="quote">Be where the World is Goning</h1>
+            <h1 class="quote">Be where the World is Going</h1>
             <h2 class="sub-quote">Join Pigeon today.</h2>
 
             <form>

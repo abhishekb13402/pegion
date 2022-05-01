@@ -1,6 +1,6 @@
 <?php
-    if(isset($_SESSION['user-id']) == false)
-        header('Location: login.php');
+    // if(isset($_SESSION['user-id']) == false)
+    //     header('Location: login.php');
 
     require_once('connection.php');
 ?>
@@ -161,6 +161,8 @@
             <aside></aside>
         </div>
     </div>
+
+    <script src="assets/js/script.js"></script>
 </body>
 
 </html>

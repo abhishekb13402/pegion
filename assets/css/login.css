@@ -21,6 +21,15 @@
     position: absolute;
     top: 15px;
     left: 15px;
+    height: 32px;
+    width: 32px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 32px;
+    cursor: pointer;
+}
+.close:hover{
+  background-color: lightgray;
 }
 
 .login_form{ 
